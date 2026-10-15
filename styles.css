@@ -1,0 +1,386 @@
+/*  RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  MAIN PAGE */
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f7fa, #e8eef7);
+    color: #2d3748;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #020617, #0f172a, #172554);
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 4px solid #2563eb;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circles behind name */
+
+header::before {
+    content: "";
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.04);
+
+    top: -220px;
+    left: -120px;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.03);
+
+    right: -100px;
+    bottom: -150px;
+}
+
+h1 {
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+
+    text-shadow:
+        0 3px 10px rgba(0,0,0,0.30);
+
+    margin-bottom: 15px;
+}
+
+/* Grouping Selector */
+
+h1,
+h2 {
+    font-weight: 600;
+}
+
+/* NAVIGATION */
+
+nav {
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+nav a {
+    text-decoration: none;
+    display: inline-block;
+
+    color: white;
+
+    padding: 12px 20px;
+    margin: 0 6px;
+
+    border-radius: 10px;
+
+    background-color: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition: all 0.3s ease;
+}
+
+/* Pseudo-Class */
+
+nav a:hover {
+    background-color: #2563eb;
+    transform: translateY(-3px);
+}
+
+/* MAIN LAYOUT */
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* CARD COMPONENT */
+
+.card {
+    width: 500px;
+    max-width: 100%;
+
+    margin: 25px auto;
+    padding: 25px;
+
+    border: 2px solid #dbe3ec;
+    border-radius: 16px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.12);
+}
+
+/*
+BOX MODEL COMPUTATION
+
+Width = 500px
+
+Because box-sizing:border-box,
+the width already includes:
+- padding
+- border
+
+Rendered width = 500px
+*/
+
+/* HEADINGS */
+
+h2 {
+    color: #1e293b;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dbeafe;
+}
+
+/* Pseudo-Element */
+
+h2::before {
+    content: "◆ ";
+    color: #2563eb;
+}
+
+/* ABOUT SECTION */
+
+/* Class Selector */
+
+.intro {
+    color: #2563eb;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* Descendant Selector */
+
+.card p {
+    margin-top: 12px;
+    text-align: justify;
+}
+
+/* ID Selector */
+
+#about {
+    position: relative;
+}
+
+/* Positioning Example */
+
+#about::after {
+    content: "PROFILE";
+
+    position: absolute;
+    top: 18px;
+    right: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color: white;
+
+    padding: 5px 14px;
+
+    border-radius: 25px;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 12px rgba(37,99,235,0.25);
+}
+
+/* CASCADE / SPECIFICITY DEMO */
+
+/* Lower Specificity */
+
+.card {
+    color: #6b7280;
+}
+
+/* Higher Specificity Wins */
+
+#about {
+    color: #2d3748;
+}
+
+/*
+The ID selector wins because
+it has higher specificity.
+*/
+
+/* SKILLS */
+
+.skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    list-style: none;
+    margin-top: 15px;
+}
+
+/* Child Selector */
+
+.skills-list > li {
+    padding: 10px 18px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color: white;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 10px rgba(37,99,235,0.20);
+
+    transition: all 0.3s ease;
+}
+
+.skills-list > li:hover {
+    transform: scale(1.08);
+}
+
+/* DISPLAY & VISIBILITY */
+
+.hide-none {
+    display: none;
+}
+
+.hide-visibility {
+    visibility: hidden;
+}
+
+/*
+display:none
+
+Removes element
+from layout.
+
+visibility:hidden
+
+Hides element
+but space remains.
+*/
+
+/* SCROLL BOX */
+
+.scroll-box {
+    height: 220px;
+    overflow: auto;
+    padding-right: 12px;
+}
+
+.scroll-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+.scroll-box::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0f172a;
+    color: white;
+
+    text-align: center;
+
+    padding: 1rem;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 700px) {
+
+    .card {
+        width: 100%;
+    }
+
+    .skills-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px;
+    }
+}
+
+/* REFLECTION QUESTIONS */
+
+/*
+1. In your own words, why did one of your two conflicting rules win in Part A? (Think specificity and order.)
+
+The rule for #about won over the rule for .card because ID selectors have a higher specificity than class selectors. Even though both rules targeted the same element, the browser gave priority to the #about rule, so its color value was applied.
+
+2. What is the rendered width of one .card if box-sizing were content-box instead of border-box? Show your computation.
+
+The .card has a width of 500px, padding of 25px on both sides, and a border of 2px on both sides. With content-box, the padding and border are added outside the specified width.
+
+500px + 25px + 25px + 2px + 2px = 554px
+
+Therefore, the rendered width would be 554px.
+
+3. When would you choose visibility: hidden instead of display: none?
+
+I would use visibility: hidden when I want an element to be invisible but still keep its space in the page layout. This is useful when I want other elements to stay in their original positions and avoid shifting the layout.
+*/
